@@ -31,12 +31,15 @@ class Dataset(object):
                 if label not in labels:
                     print("\033[1m\033[91mError. Invalid label.\n\33[0m")
                 else:
-                    self.X = X
-                    self.Y = self.X.pop(label)
+                    self.ind_values = X
+                    self.dep_value = self.ind_values.pop(label)
+                    self.ind_labels = list(self.ind_values.columns)
+                    self.dep_label = self.dep_value.name
+                    self.X = np.array(self.ind_values)
+                    self.X = np.insert(self.X, 0, [1.0] * self.X.shape[0], 1)
+                    self.Y = np.array(self.dep_value).reshape((-1, 1))
+                    self.thetas = np.array([0.0] * (self.X.shape[1])).reshape((-1, 1))
                     self.shape = self.X.shape
-                    self.thetas = pd.DataFrame([0.0] * (self.shape[1] + 1), columns = ["Thetas"])
-                    self.X.insert(0, "None", [1.0] * self.shape[0])
-                    self.labels = list(self.X.columns)
                     self.on = True
                     os.system("clear")
                     print("\033[1m\033[92mData successfully loaded :)\n\033[0m")
@@ -55,24 +58,22 @@ class Dataset(object):
             print("\033[1m\033[93mCAUTION! Dataset object is not valid :(\n\033[0m")
             return
         while True:
-            print("Available labels:\n  {}\n".format(self.labels[1:]))
+            print("Available labels:\n  {}\n".format(self.ind_labels))
             label = input("Which label do you want to display:\n>> ")
-            if label in self.labels[1:]:
+            if label in self.ind_labels:
                 break
             print("\033[1m\033[91mError. Invalid label.\n\33[0m")
         os.system("clear")
-        data_table = self.X.copy()
-        data_table.insert(self.shape[1] + 1, self.Y.name, self.Y)
+        data_table = self.ind_values.copy()
+        data_table.insert(self.shape[1] - 1, self.dep_label, self.dep_value)
         print(data_table)
-        X = np.array(self.X)
-        thetas = np.array(self.thetas).reshape((-1, 1))
-        Y_hat = np.matmul(X, thetas).reshape((-1, 1))
-        plt.scatter(self.X[label], self.Y, alpha = 0.5, label = "Real Values")
-        plt.scatter(self.X[label], Y_hat, alpha = 0.5, label = "Predicted Values")
+        Y_hat = np.matmul(self.X, self.thetas)
+        plt.scatter(self.ind_values[label], self.Y, alpha = 0.5, label = "Real Values")
+        plt.scatter(self.ind_values[label], Y_hat, alpha = 0.5, label = "Predicted Values")
+        plt.ylabel(self.dep_label)
         plt.xlabel(label)
-        plt.ylabel(self.Y.name)
-        plt.grid()
         plt.legend()
+        plt.grid()
         plt.show()
         os.system("clear")
         return
@@ -85,20 +86,16 @@ class Dataset(object):
             os.system("clear")
             print("\033[1m\033[93mCAUTION! Dataset object is not valid :(\n\033[0m")
             return
-        thetas = np.array(self.thetas).reshape((-1, 1))
-        X = np.array(self.X)
-        Y = np.array(self.Y).reshape((-1, 1))
         alpha = 0.01
         iterations = 0
-        while iterations < 10000:
-            Y_hat = np.matmul(X, thetas).reshape((-1, 1))
-            cost = (Y_hat - Y).transpose()
-            tmp_thetas = ((sum(np.matmul(cost, X)).transpose()) / self.shape[0]).reshape((-1, 1))
-            thetas -= alpha * tmp_thetas
+        print("\033[1m\033[93mTraining model...\033[0m")
+        while iterations < 100000:
+            Y_hat = np.matmul(self.X, self.thetas).reshape((-1, 1))
+            tmp_thetas = sum(np.matmul((Y_hat - self.Y).transpose(), self.X, dtype = "float")) / self.shape[0]
+            self.thetas -= alpha * tmp_thetas.reshape((-1, 1))
             iterations += 1
-        self.thetas = pd.DataFrame(thetas)
         os.system("clear")
-        print("\033[1m\033[92mData successfully trained :)\n\033[0m")
+        print("\033[1m\033[92mModel successfully trained :)\n\033[0m")
         return
 
     def cost(self):
@@ -109,32 +106,29 @@ class Dataset(object):
             os.system("clear")
             print("\033[1m\033[93mCAUTION! Dataset object is not valid :(\n\033[0m")
             return
-        thetas = np.array(self.thetas)
-        X = np.array(self.X)
-        Y = np.array(self.Y).reshape((1, -1))
-        Y_hat = np.matmul(X, thetas).reshape((1, -1))
-        cost = sum((Y_hat[0] - Y[0]) ** 2) / (2 * self.shape[0])
+        Y_hat = np.matmul(self.X, self.thetas).reshape((-1, 1))
+        cost = sum((Y_hat - self.Y) ** 2) / (2 * self.shape[0])
         user_input = input("Do you want to plot the cost function? (Yes/No)\n>> ")
         if user_input == "Yes":
-            print("\nAvailable labels:\n  {}".format(self.labels[1:]))
-            user_input = input("\nWhich label do you want to measure?\n>> ")
-            while user_input not in self.labels:
-                print("\033[1m\033[91m\nError. Invalid label.\33[0m")
-                print("\nAvailable labels:\n  {}".format(self.labels[1:]))
-                user_input = input("\nWhich label do you want to measure?\n>> ")
-            data_table = [list(), list()]
-            index = self.labels.index(user_input)
+            while True:
+                print("Available labels:\n  {}\n".format(self.ind_labels))
+                label = input("Which label do you want to measure?\n>> ")
+                if label in self.ind_labels:
+                    break
+                print("\033[1m\033[91mError. Invalid label.\n\33[0m")
+            cost_table = [list(), list()]
+            index = self.ind_labels.index(label) + 1
             count = -50.0
-            while count <= 50.0:
-                thetas[index][0] += count
-                Y_hat = np.matmul(X, thetas).reshape((1, -1))
-                cost_ = sum((Y_hat[0] - Y[0]) ** 2) / (2 * self.shape[0])
-                data_table[0].append(thetas[index][0])
-                data_table[1].append(cost_)
-                thetas[index] -= count
+            while count <= 50.1:
+                self.thetas[index][0] += count
+                Y_hat = np.matmul(self.X, self.thetas).reshape((-1, 1))
+                cost_ = sum((Y_hat - self.Y) ** 2) / (2 * self.shape[0])
+                cost_table[0].append(self.thetas[index][0])
+                cost_table[1].append(cost_)
+                self.thetas[index][0] -= count
                 count += 0.1
-            plt.plot(data_table[0], data_table[1])
-            plt.scatter(thetas[index][0], cost, color = "red")
+            plt.plot(cost_table[0], cost_table[1])
+            plt.scatter(self.thetas[index][0], cost, color = "red")
             plt.xlabel(user_input)
             plt.ylabel("cost")
             plt.grid()
@@ -154,19 +148,15 @@ class Dataset(object):
             os.system("clear")
             print("\033[1m\033[93mCAUTION! Dataset object is not valid :(\n\033[0m")
             return
-        output = 0.0
-        theta_pos = 1
-        thetas = np.array(self.thetas)
         try:
-            output = thetas[0] * 1.0
-            for item in self.labels:
-                if item == "None":
-                    continue
+            theta_pos = 1
+            output = self.thetas[0][0]
+            for item in self.ind_labels:
                 user_input = input("Introduce {} value:\n>> ".format(item))
                 print()
-                output += (thetas[theta_pos] * float(user_input))
+                output += (self.thetas[theta_pos][0] * float(user_input))
                 theta_pos += 1
-            print("The predicted value for {} is: {}\n".format(self.Y.name, output[0]))
+            print("The predicted value for {} is: {}\n".format(self.dep_label, output))
             input("Press any key to continue...")
             os.system("clear")
         except:

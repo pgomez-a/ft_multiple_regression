@@ -86,14 +86,9 @@ class Dataset(object):
             os.system("clear")
             print("\033[1m\033[93mCAUTION! Dataset object is not valid :(\n\033[0m")
             return
-        alpha = 0.01
-        iterations = 0
-        print("\033[1m\033[93mTraining model...\033[0m")
-        while iterations < 100000:
-            Y_hat = np.matmul(self.X, self.thetas).reshape((-1, 1))
-            tmp_thetas = sum(np.matmul((Y_hat - self.Y).transpose(), self.X, dtype = "float")) / self.shape[0]
-            self.thetas -= alpha * tmp_thetas.reshape((-1, 1))
-            iterations += 1
+        first_term = np.linalg.pinv(np.matmul(self.X.transpose(), self.X))
+        second_term = np.matmul(self.X.transpose(), self.Y)
+        self.thetas = np.matmul(first_term, second_term)
         os.system("clear")
         print("\033[1m\033[92mModel successfully trained :)\n\033[0m")
         return

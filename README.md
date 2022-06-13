@@ -14,7 +14,7 @@
 
 <img width=500 alt="train.py -v" src="https://user-images.githubusercontent.com/74931024/173360214-0086cf89-6b71-412e-9cc3-74ac85ddba8a.gif">
 
-**Plot** the dataset values:
+**Plot** the dataset values of your choice:
 
 <img align="left" width="390" alt="age" src="https://user-images.githubusercontent.com/74931024/173361875-e90b04f6-9fd4-4e9a-a2c5-f28f0f0ffb80.png">
 <img align="right" width="390" alt="power" src="https://user-images.githubusercontent.com/74931024/173361915-205ea21b-8bdf-4450-9d55-c55fca8bbef1.png">

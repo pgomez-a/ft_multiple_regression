@@ -1,6 +1,6 @@
 # ft_multiple_regression
 
-**ft_multiple_regression** is a **FREE** program that uses **Machine Learning** to find patterns within your numerical databases. Thanks to this, you will be able to estimate new values that are of interest to you with a fairly high degree of reliability. You will thus be able to estimate future costs within your company, estimate benefits, find potential opportunities and discover that information that often goes unnoticed but that shows us a clear trend in the data. **So with that said, how can we use it?**
+**ft_multiple_regression** is a **FREE** program that uses **Machine Learning** to find patterns within your numerical databases. Thanks to this, you will be able to estimate new values that are of interest to you with a fairly high degree of reliability. You will thus be able to estimate future costs within your company, estimate benefits, find potential opportunities and discover the information that often goes unnoticed but that shows us a clear trend in the data. **So with that said, how can we use it?**
 
 **Clone** the repository:
 
@@ -39,11 +39,11 @@
 <img width="390" alt="age_after" src="https://user-images.githubusercontent.com/74931024/173364521-28e0fab6-7255-4ce4-8873-77f5a92a1c2e.png">
 </div>
 
-As you can see, **ft_multiple_regression** allows us to find many hidden patterns within our databases. Thanks to some values that we already know, we will be able to estimate other values of our interest that we do not yet know. The best part about this is that the program does the estimation for us. Thus, if we select option 5, we can predict new values based on the values we know. However, there are still many things that I would like to implement in the following versions, such as:
+As you can see, **ft_multiple_regression** allows us to find many hidden patterns within our databases. Thanks to some values that we already know, we will be able to estimate other values of our interest that we don't know yet. The best part about this is that the program does the estimation for us. Thus, if we select option 5, we can predict new values based on the values we know. However, there are still many things that I would like to implement in the following versions, such as:
 - **Databases of all kinds (and not only numerical).**
 - **Greater control over dependent and independent variables.**
 - **Different database formats.**
 - **Being able to work with more than one database.**
 - **Implement GUI.**
 
-As you can imagine, doing this requires a lot of time and resources. I have decided to make this program free because I think it is the best way to spread new knowledge. **[But if you think that all this work deserves an economic reward, I put my Patreon page so you can do it.](https://www.patreon.com/pgomeza?fan_landing=true)** Similarly, I encourage you to send feedback and share with your network of contacts. The more people know about these technologies, the greater the chances of solving big problems.
+As you can imagine, doing this requires a lot of time and resources. I have decided to make this program **free** because I think it is the best way to spread new knowledge. **[But if you think that all this work deserves an economic reward, I put my Patreon page so you can do it.](https://www.patreon.com/pgomeza?fan_landing=true)** Similarly, I encourage you to send feedback and share with your network of contacts. The more people know about these technologies, the greater the chances of solving big problems.

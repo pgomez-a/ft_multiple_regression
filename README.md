@@ -16,5 +16,5 @@
 
 **Plot** the dataset values:
 
-<img align="left" width="380" alt="age" src="https://user-images.githubusercontent.com/74931024/173361875-e90b04f6-9fd4-4e9a-a2c5-f28f0f0ffb80.png">
-<img align="right" width="380" alt="power" src="https://user-images.githubusercontent.com/74931024/173361915-205ea21b-8bdf-4450-9d55-c55fca8bbef1.png">
+<img align="left" width="390" alt="age" src="https://user-images.githubusercontent.com/74931024/173361875-e90b04f6-9fd4-4e9a-a2c5-f28f0f0ffb80.png">
+<img align="right" width="390" alt="power" src="https://user-images.githubusercontent.com/74931024/173361915-205ea21b-8bdf-4450-9d55-c55fca8bbef1.png">

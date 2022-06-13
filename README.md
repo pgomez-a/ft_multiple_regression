@@ -40,7 +40,10 @@
 </div>
 
 As you can see, **ft_multiple_regression** allows us to find many hidden patterns within our databases. Thanks to some values that we already know, we will be able to estimate other values of our interest that we do not yet know. The best part about this is that the program does the estimation for us. Thus, if we select option 5, we can predict new values based on the values we know. However, there are still many things that I would like to implement in the following versions, such as:
-- Databases of all kinds (and not only numerical).
-- Greater control over dependent and independent variables.
-- Different database formats.
-- Being able to work with more than one database.
+- **Databases of all kinds (and not only numerical).**
+- **Greater control over dependent and independent variables.**
+- **Different database formats.**
+- **Being able to work with more than one database.**
+- **Implement GUI.***
+
+As you can imagine, doing this requires a lot of time and resources. I have decided to make this program free because I think it is the best way to spread new knowledge. But if you think that all this work deserves an economic reward, I put my Patreon page so you can do it. Similarly, I encourage you to send feedback and share with your network of contacts. The more people know about these technologies, the greater the chances of solving big problems.

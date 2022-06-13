@@ -21,15 +21,15 @@
 **Plot** the dataset values of your choice:
 
 <div align="center">
-<img width="390" alt="age" src="https://user-images.githubusercontent.com/74931024/173361875-e90b04f6-9fd4-4e9a-a2c5-f28f0f0ffb80.png">
 <img width="390" alt="power" src="https://user-images.githubusercontent.com/74931024/173361915-205ea21b-8bdf-4450-9d55-c55fca8bbef1.png">
+<img width="390" alt="age" src="https://user-images.githubusercontent.com/74931024/173361875-e90b04f6-9fd4-4e9a-a2c5-f28f0f0ffb80.png">
 </div>
 
 **Train** the model (option 3) and **plot** the values again:
 
 <div align="center">
-<img width="390" alt="age" src="https://user-images.githubusercontent.com/74931024/173362766-f225b6c7-d35b-46c5-98f4-4230b9dfb86b.png">
-<img width="390" alt="power" src="https://user-images.githubusercontent.com/74931024/173362828-382de2c8-f477-49e8-ae0c-28d4f3cfce15.png">
+<img width="390" alt="power" src="https://user-images.githubusercontent.com/74931024/173362766-f225b6c7-d35b-46c5-98f4-4230b9dfb86b.png">
+<img width="390" alt="age" src="https://user-images.githubusercontent.com/74931024/173362828-382de2c8-f477-49e8-ae0c-28d4f3cfce15.png">
 </div>
 
 **Study** the reliabily of the model (before training - after training):

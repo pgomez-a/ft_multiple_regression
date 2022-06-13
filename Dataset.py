@@ -124,7 +124,7 @@ class Dataset(object):
                 count += 0.1
             plt.plot(cost_table[0], cost_table[1])
             plt.scatter(self.thetas[index][0], cost, color = "red")
-            plt.xlabel(user_input)
+            plt.xlabel(label)
             plt.ylabel("cost")
             plt.grid()
             print("\nThe current cost for the model is: {}".format(cost))

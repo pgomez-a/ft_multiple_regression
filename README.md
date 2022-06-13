@@ -1,5 +1,7 @@
 # ft_multiple_regression
 
+**If you want to learn more about IT topics, visit my website:** [**IA Notes**](https://ia-notes.com/)
+
 **ft_multiple_regression** is a **FREE** program that uses **Machine Learning** to find patterns within your numerical databases. Thanks to this, you will be able to estimate new values that are of interest to you with a fairly high degree of reliability. You will thus be able to estimate future costs within your company, estimate benefits, find potential opportunities and discover the information that often goes unnoticed but that shows us a clear trend in the data. **So with that said, how can we use it?**
 
 **Clone** the repository:

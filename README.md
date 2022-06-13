@@ -44,6 +44,6 @@ As you can see, **ft_multiple_regression** allows us to find many hidden pattern
 - **Greater control over dependent and independent variables.**
 - **Different database formats.**
 - **Being able to work with more than one database.**
-- **Implement GUI.***
+- **Implement GUI.**
 
 As you can imagine, doing this requires a lot of time and resources. I have decided to make this program free because I think it is the best way to spread new knowledge. But if you think that all this work deserves an economic reward, I put my Patreon page so you can do it. Similarly, I encourage you to send feedback and share with your network of contacts. The more people know about these technologies, the greater the chances of solving big problems.

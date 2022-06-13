@@ -12,7 +12,11 @@
 
 **Load** a numerical dataset of your choice:
 
+<div align="center">
 <img width=500 alt="train.py -v" src="https://user-images.githubusercontent.com/74931024/173360214-0086cf89-6b71-412e-9cc3-74ac85ddba8a.gif">
+</div>
+
+<br>
 
 **Plot** the dataset values of your choice:
 

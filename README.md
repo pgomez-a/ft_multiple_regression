@@ -38,3 +38,9 @@
 <img width="390" alt="age_before" src="https://user-images.githubusercontent.com/74931024/173364450-f6c8cfdb-4627-49df-bebc-a03b3274d411.png">
 <img width="390" alt="age_after" src="https://user-images.githubusercontent.com/74931024/173364521-28e0fab6-7255-4ce4-8873-77f5a92a1c2e.png">
 </div>
+
+As you can see, **ft_multiple_regression** allows us to find many hidden patterns within our databases. Thanks to some values that we already know, we will be able to estimate other values of our interest that we do not yet know. The best part about this is that the program does the estimation for us. Thus, if we select option 5, we can predict new values based on the values we know. However, there are still many things that I would like to implement in the following versions, such as:
+- Databases of all kinds (and not only numerical).
+- Greater control over dependent and independent variables.
+- Different database formats.
+- Being able to work with more than one database.
